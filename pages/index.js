@@ -23,22 +23,29 @@ export default function Home() {
 
   // Se modo revelação ativo e sexo definido -> mostrar revelação para TODO MUNDO
   if (revealMode && revealGender) {
+    const isBoy = revealGender === 'menino';
+    const corFundo = isBoy ? 'var(--boy)' : 'var(--girl)';
+    const corBorda = isBoy ? 'var(--boy-border)' : 'var(--girl-border)';
     const vencedores = data.apostas.filter(a => a.palpite === revealGender)
+
     return (
       <div className="container">
-        <div className="banner">
-          <h1>Revelação — {revealGender === 'menino' ? 'É MENINO!' : 'É MENINA!'}</h1>
-          <p className="small">Parabéns ao casal — abaixo estão as pessoas que acertaram:</p>
+        
+        {/* NOVO DESIGN: Banner com cores temáticas */}
+        <div className="banner" style={{ backgroundColor: corFundo, border: `2px solid ${corBorda}` }}>
+          <h1>🎉 REVELAÇÃO 🎉</h1>
+          <h2>{isBoy ? 'É UM MENINO!' : 'É UMA MENINA!'}</h2>
+          <p className="small">Parabéns ao casal — abaixo estão as pessoas que acertaram o palpite:</p>
         </div>
 
         <section className="card">
           <h3>Palpites Vencedores</h3> 
           {vencedores.length===0 && <div className="small">Ninguém acertou :(</div>}
-          <ul>
+          <ul className="vencedores-lista">
             {vencedores.map(v => (
-              <li key={v.id}>
-                <strong>{v.nome.toUpperCase()}</strong> {/* CORREÇÃO: Nome em caixa alta aqui */}
-                {v.sugestao && ` — Sugestão: ${v.sugestao}`}
+              <li key={v.id} className={isBoy ? 'vencedor-boy' : 'vencedor-girl'}>
+                <strong>{v.nome.toUpperCase()}</strong> {/* Nome em caixa alta */}
+                {v.sugestao && ` — Sugestão: ${v.sugestao}`} {/* Oculta se sugestão for vazia */}
               </li>
             ))}
           </ul>
