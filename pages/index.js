@@ -32,20 +32,20 @@ export default function Home() {
         </div>
 
         <section className="card">
-          <h3>Palpites Vencedores</h3> {/* Termo mudado */}
+          <h3>Palpites Vencedores</h3> 
           {vencedores.length===0 && <div className="small">Ninguém acertou :(</div>}
           <ul>
             {vencedores.map(v => (
               <li key={v.id}>
-                <strong>{v.nome}</strong> 
-                {v.sugestao && ` — Sugestão: ${v.sugestao}`} {/* NOVO: Oculta se sugestão for vazia */}
+                <strong>{v.nome.toUpperCase()}</strong> {/* CORREÇÃO: Nome em caixa alta aqui */}
+                {v.sugestao && ` — Sugestão: ${v.sugestao}`}
               </li>
             ))}
           </ul>
         </section>
 
         <footer className="footer">
-          {/* NOVO: Link discreto para o Admin */}
+          {/* Link discreto para o Admin */}
           <div className="small">Se precisar, peça ao <Link href="/admin"><a>admin</a></Link> para desativar a revelação.</div>
         </footer>
       </div>
