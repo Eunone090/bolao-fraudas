@@ -23,7 +23,7 @@ export default function Admin(){
         setAuth(true); 
         setPwd('') 
     } else { 
-        alert('Sai daqui, curioso.') // <<< NOVA MENSAGEM DE ERRO
+        alert('Sai daqui, curioso.') // <<< MENSAGEM PERSONALIZADA
     }
   }
 
@@ -95,12 +95,35 @@ export default function Admin(){
           <button className="btn" onClick={()=>{navigator.clipboard.writeText(JSON.stringify(data.apostas || [])); alert('Copiado JSON')}}>Copiar JSON</button>
         </div>
 
-        <div>
-          <h4>Total de apostas: {data.total}</h4>
-          <h4>Menino: {data.menino} — Menina: {data.menina}</h4>
-          <h4>Fralda: {data.fralda} — Pix: {data.pix}</h4>
-        </div>
-
+        {/* NOVO: Tabela de Resumo de Estatísticas */}
+        <section style={{marginTop: 12}}>
+          <h3>Resumo das Apostas</h3>
+          <table className="table" style={{maxWidth:'300px'}}>
+            <tbody>
+                <tr>
+                    <th>Total de Apostas</th>
+                    <td>{data.total}</td>
+                </tr>
+                <tr>
+                    <th>Menino</th>
+                    <td>{data.menino}</td>
+                </tr>
+                <tr>
+                    <th>Menina</th>
+                    <td>{data.menina}</td>
+                </tr>
+                <tr>
+                    <th>Fralda</th>
+                    <td>{data.fralda}</td>
+                </tr>
+                <tr>
+                    <th>Pix</th>
+                    <td>{data.pix}</td>
+                </tr>
+            </tbody>
+          </table>
+        </section>
+        
         <div style={{marginTop:12}}>
           {!config.revealMode ? (
             <>
