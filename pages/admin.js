@@ -19,7 +19,12 @@ export default function Admin(){
   }
 
   const tryLogin = () => {
-    if(pwd === ADMIN_PASSWORD){ setAuth(true); setPwd('') } else { alert('Senha incorreta') }
+    if(pwd === ADMIN_PASSWORD){ 
+        setAuth(true); 
+        setPwd('') 
+    } else { 
+        alert('Sai daqui, curioso.') // <<< NOVA MENSAGEM DE ERRO
+    }
   }
 
   const activateReveal = async () => {
