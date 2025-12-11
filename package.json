@@ -11,6 +11,6 @@
     "next":"13.4.10",
     "react":"18.2.0",
     "react-dom":"18.2.0",
-    "@vercel/kv": "latest" // <<<<< ADICIONE ESTA LINHA
+    "@vercel/kv": "latest",
   }
 }
