@@ -11,9 +11,21 @@
 *{box-sizing:border-box;font-family:Inter, Arial, sans-serif}
 body{margin:0;background:var(--bg);color:#111}
 .container{max-width:920px;margin:0 auto;padding:20px}
-.topbar{position:sticky;top:0;background:var(--card);padding:16px;border-bottom:1px solid #e6e6e6;z-index:50}
-.progress{height:34px;background:#eee;border-radius:999px;overflow:hidden;display:flex}
+
+/* NOVO: Wrapper para a topbar e a barra de progresso ficarem fixas */
+.topbar-wrapper{position:sticky;top:0;z-index:50}
+
+/* AJUSTE: topbar sem sticky position, agora usa o wrapper */
+.topbar{
+  background:var(--card);
+  padding:16px;
+  border-bottom:1px solid #e6e6e6;
+}
+
+/* AJUSTE: Removido border-radius na barra de progresso para que ela ocupe toda a largura */
+.progress{height:34px;background:#eee;border-radius:0;overflow:hidden;display:flex}
 .progress > div{height:100%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:white}
+
 .banner{background:#fff;padding:32px;border-radius:12px;text-align:center;margin-top:16px}
 .card{background:var(--card);padding:16px;border-radius:12px;margin-top:16px;box-shadow:0 1px 6px rgba(0,0,0,0.04)}
 .input,select,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px}
@@ -37,6 +49,24 @@ body{margin:0;background:var(--bg);color:#111}
 /* girl (style D): rosé background */
 .tooltip.girl .tooltiptext{background:var(--girl);border-color:var(--girl-border)}
 .tooltip.girl .tooltiptext::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border-width:6px;border-style:solid;border-color:transparent transparent var(--girl) transparent}
+
+/* NOVO: Estilos para diferenciar os palpites na lista */
+.palpite-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  white-space: nowrap; /* Impede quebras */
+}
+.tag-boy {
+  background: var(--boy-border);
+  color: #1a4d8c; /* Azul escuro */
+}
+.tag-girl {
+  background: var(--girl-border);
+  color: #9c2759; /* Rosa escuro */
+}
 
 /* responsive */
 @media (max-width:600px){
