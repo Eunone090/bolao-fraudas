@@ -175,7 +175,7 @@ export default function Home() {
 
         {diasRestantes !== null && (
           <section className="card">
-            <div className="small">⏳ Faltam {diasRestantes} dias para apostar!</div>
+            <div className="small">⏳ Restam {diasRestantes} dias para apostar!</div>
           </section>
         )}
 
