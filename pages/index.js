@@ -18,6 +18,8 @@ export default function Home() {
   const config = data.config || {}
   const revealMode = config.revealMode
   const revealGender = config.revealGender
+  // ADAPTAÇÃO: Desestrutura as porcentagens para a barra de progresso
+  const { porcentagemMenino, porcentagemMenina } = data
 
   // Se modo revelação ativo e sexo definido -> mostrar revelação para TODO MUNDO
   if (revealMode && revealGender) {
@@ -30,7 +32,7 @@ export default function Home() {
         </div>
 
         <section className="card">
-          <h3>Acertadores</h3>
+          <h3>Palpites Vencedores</h3> {/* ALTERAÇÃO: Termo mudado */}
           {vencedores.length===0 && <div className="small">Ninguém acertou :(</div>}
           <ul>
             {vencedores.map(v => (
@@ -83,14 +85,34 @@ export default function Home() {
   }
 
   return (
-    <div className="container">
+    <div className="topbar-wrapper">
+      
+      {/* ADAPTAÇÃO: Topbar Original */}
       <div className="topbar">
         <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
           <div style={{fontWeight:700}}>Bolão de Fraldas — Alícia & Matheus</div>
           <div><Link href="/admin"><a className="btn">Área do Admin</a></Link></div>
         </div>
       </div>
-
+      
+      {/* ADAPTAÇÃO: Barra de Progresso no Topo */}
+      <div className="progress">
+        <div style={{
+          width: `${porcentagemMenino}%`,
+          backgroundColor: '#0ea5a4', /* Cor Menino */
+          transition: 'width 1s ease-in-out'
+        }}>
+          {porcentagemMenino > 10 && `Menino ${porcentagemMenino}%`}
+        </div>
+        <div style={{
+          width: `${porcentagemMenina}%`,
+          backgroundColor: '#ff69b4', /* Cor Menina */
+          transition: 'width 1s ease-in-out'
+        }}>
+          {porcentagemMenina > 10 && `Menina ${porcentagemMenina}%`}
+        </div>
+      </div>
+      
       <main className="container">
         <section className="banner">
           <h1>Bolão de Fraldas da Alícia e do Matheus</h1>
@@ -103,7 +125,7 @@ export default function Home() {
             1️⃣ Doe fraldas para os papais! A forma principal de participar do Bolão é doando fraldas — <strong>prefira M, G ou GG</strong> (os papais não precisam do tamanho P). Você pode entregar diretamente ao casal.
           </p>
           <p className="small">
-            2️⃣ Não consegue entregar fraldas? Participe via Pix! Envie o Pix no valor que desejar — de coração 💛. Envie o comprovante diretamente aos papais.
+            2️⃣ Não consegue entregar fraldas? Participe via Pix! Envie o Pix no valor que desejar — de coração 💛.
           </p>
           <div style={{marginTop:8,fontWeight:600}}>📌 Chave Pix: <u>85 99772-4197 — Alicia Cardoso de Oliveira</u></div>
           <p className="small" style={{marginTop:8}}>3️⃣ Depois de doar: preencha o formulário abaixo com seu nome completo, palpite e forma de participação.</p>
@@ -122,7 +144,7 @@ export default function Home() {
 
               <select className="input" value={participacao} onChange={e=>setParticipacao(e.target.value)}>
                 <option value="fralda">Doação em fralda</option>
-                <option value="pix">Pix (envie comprovante)</option>
+                <option value="pix">Pix</option> {/* ALTERAÇÃO: Removido "(envie comprovante)" */}
               </select>
 
               <input className="input" placeholder="Sugestão de nome (opcional)" value={sugestao} onChange={e=>setSugestao(e.target.value)} />
@@ -146,10 +168,16 @@ export default function Home() {
           <div className="small">Total: {data.total} — Menino: {data.menino} • Menina: {data.menina}</div>
           <div style={{marginTop:8}}>
             {data.apostas.slice().reverse().map(a=>(
+              // ADAPTAÇÃO: Adiciona a tag de palpite (Menino/Menina)
               <div key={a.id} className="list-item">
-                <div>
-                  <strong>{a.nome}</strong>
-                  <div className="small">{a.sugestao ? `Sugestão: ${a.sugestao}` : ''}</div>
+                <div style={{display:'flex', alignItems:'center', gap:10}}>
+                  <div className={`palpite-tag ${a.palpite === 'menino' ? 'tag-boy' : 'tag-girl'}`}>
+                    {a.palpite === 'menino' ? '♂ Menino' : '♀ Menina'}
+                  </div>
+                  <div>
+                    <strong>{a.nome}</strong>
+                    <div className="small">{a.sugestao ? `Sugestão: ${a.sugestao}` : ''}</div>
+                  </div>
                 </div>
                 <div className="small">{new Date(a.criadoEm).toLocaleString()}</div>
               </div>
