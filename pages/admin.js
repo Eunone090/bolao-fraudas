@@ -65,7 +65,7 @@ export default function Admin(){
       <input className="input" type="password" placeholder="Senha" value={pwd} onChange={e=>setPwd(e.target.value)} />
       <div style={{marginTop:8}}>
         <button className="btn" onClick={tryLogin}>Entrar</button>
-        {/* Alteração na tela de Login */}
+        {/* Botão Voltar na tela de Login */}
         <button className="btn" style={{background:'#6b7280', marginLeft:8}} onClick={()=>router.push('/')}>Voltar ao Site</button> 
       </div>
     </div>
@@ -79,7 +79,7 @@ export default function Admin(){
     <div className="container">
       <div className="card">
         
-        {/* Alteração no painel principal: Título e botão Voltar */}
+        {/* Título e botão Voltar no painel principal */}
         <div style={{display:'flex', justifyContent: 'space-between', alignItems: 'center'}}>
             <h2>Painel Admin</h2>
             <button className="btn" style={{background:'#6b7280', alignSelf:'flex-start'}} onClick={()=>router.push('/')}>Voltar ao Site</button>
@@ -125,7 +125,7 @@ export default function Admin(){
             <tbody>
               {data.apostas.map(a=>(
                 <tr key={a.id}>
-                  <td>{a.nome}</td>
+                  <td>{a.nome.toUpperCase()}</td> {/* CORREÇÃO: Nome em caixa alta aqui */}
                   <td>{a.palpite}</td>
                   <td>{a.participacao}</td>
                   <td>{a.sugestao || '-'}</td>
