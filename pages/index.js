@@ -138,7 +138,17 @@ export default function Home() {
           <p className="small">
             2️⃣ Não consegue entregar fraldas? Participe via Pix! Envie o Pix no valor que desejar — de coração 💛.
           </p>
-          <div style={{marginTop:8,fontWeight:600}}>📌 Chave Pix: <u>85 99772-4197 — Alicia Cardoso de Oliveira</u></div>
+          
+          <div style={{marginTop:8}}>
+            {/* NOVO: Apenas o estilo small para a chave Pix, mantendo o sublinhado. */}
+            <div className="small">📌 Chave Pix: <u>85 99772-4197 — Alicia Cardoso de Oliveira</u></div>
+          </div>
+
+          {/* NOVO: Observação bem discreta em itálico */}
+          <p className="small" style={{marginTop:4, fontStyle:'italic'}}>
+            Não se esqueça de enviar o comprovante Pix aos pais!
+          </p>
+
           <p className="small" style={{marginTop:8}}>3️⃣ Depois de doar: preencha o formulário abaixo com seu nome completo, palpite e forma de participação.</p>
         </section>
 
