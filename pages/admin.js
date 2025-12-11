@@ -125,7 +125,7 @@ export default function Admin(){
             <tbody>
               {data.apostas.map(a=>(
                 <tr key={a.id}>
-                  <td>{a.nome.toUpperCase()}</td> {/* CORREÇÃO: Nome em caixa alta aqui */}
+                  <td>{a.nome.toUpperCase()}</td> {/* Nome em caixa alta aqui */}
                   <td>{a.palpite}</td>
                   <td>{a.participacao}</td>
                   <td>{a.sugestao || '-'}</td>
