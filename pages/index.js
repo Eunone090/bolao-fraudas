@@ -102,7 +102,7 @@ export default function Home() {
       <div className="topbar">
         <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
           <div style={{fontWeight:700}}>Bolão de Fraldas — Alícia & Matheus</div>
-          <div><Link href="/admin"><a className="btn">Área do Admin</a></Link></div>
+          <div><Link href="/admin"><a className="btn">Admin</a></Link></div> {/* <<<<<< ALTERAÇÃO AQUI */}
         </div>
       </div>
       
@@ -136,18 +136,13 @@ export default function Home() {
             1️⃣ Doe fraldas para os papais! A forma principal de participar do Bolão é doando fraldas — <strong>prefira M, G ou GG</strong> (os papais não precisam do tamanho P). Você pode entregar diretamente ao casal.
           </p>
           <p className="small">
-            2️⃣ Não consegue entregar fraldas? Participe via Pix! Envie o Pix no valor que desejar — de coração 💛.
+            2️⃣ Não consegue entregar fraldas? Participe via Pix! Envie o Pix no valor que desejar — de coração 💛. Pode enviar o comprovante direto pros papais.
           </p>
           
           <div style={{marginTop:8}}>
             {/* NOVO: Apenas o estilo small para a chave Pix, mantendo o sublinhado. */}
             <div className="small">📌 Chave Pix: <u>85 99772-4197 — Alicia Cardoso de Oliveira</u></div>
           </div>
-
-          {/* NOVO: Observação bem discreta em itálico */}
-          <p className="small" style={{marginTop:4, fontStyle:'italic'}}>
-            Não se esqueça de enviar o comprovante Pix aos pais!
-          </p>
 
           <p className="small" style={{marginTop:8}}>3️⃣ Depois de doar: preencha o formulário abaixo com seu nome completo, palpite e forma de participação.</p>
         </section>
