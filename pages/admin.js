@@ -23,7 +23,7 @@ export default function Admin(){
         setAuth(true); 
         setPwd('') 
     } else { 
-        alert('Sai daqui, curioso.') // <<< MENSAGEM PERSONALIZADA
+        alert('Sai daqui, curioso.') 
     }
   }
 
@@ -95,33 +95,51 @@ export default function Admin(){
           <button className="btn" onClick={()=>{navigator.clipboard.writeText(JSON.stringify(data.apostas || [])); alert('Copiado JSON')}}>Copiar JSON</button>
         </div>
 
-        {/* NOVO: Tabela de Resumo de Estatísticas */}
-        <section style={{marginTop: 12}}>
-          <h3>Resumo das Apostas</h3>
-          <table className="table" style={{maxWidth:'300px'}}>
-            <tbody>
-                <tr>
-                    <th>Total de Apostas</th>
-                    <td>{data.total}</td>
-                </tr>
-                <tr>
-                    <th>Menino</th>
-                    <td>{data.menino}</td>
-                </tr>
-                <tr>
-                    <th>Menina</th>
-                    <td>{data.menina}</td>
-                </tr>
-                <tr>
-                    <th>Fralda</th>
-                    <td>{data.fralda}</td>
-                </tr>
-                <tr>
-                    <th>Pix</th>
-                    <td>{data.pix}</td>
-                </tr>
-            </tbody>
-          </table>
+        {/* NOVO: Tabela de Resumo de Estatísticas, dividida por subgrupos */}
+        <section style={{marginTop: 12, display: 'flex', gap: '40px', flexWrap: 'wrap'}}>
+            <div>
+                <h3>Total Geral</h3>
+                <table className="table">
+                    <tbody>
+                        <tr>
+                            <th>Total de Apostas</th>
+                            <td>{data.total}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div>
+                <h3>Palpites (Menino/Menina)</h3>
+                <table className="table">
+                    <tbody>
+                        <tr>
+                            <th>Menino</th>
+                            <td>{data.menino}</td>
+                        </tr>
+                        <tr>
+                            <th>Menina</th>
+                            <td>{data.menina}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div>
+                <h3>Tipo de Participação</h3>
+                <table className="table">
+                    <tbody>
+                        <tr>
+                            <th>Fralda</th>
+                            <td>{data.fralda}</td>
+                        </tr>
+                        <tr>
+                            <th>Pix</th>
+                            <td>{data.pix}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
         
         <div style={{marginTop:12}}>
@@ -153,7 +171,7 @@ export default function Admin(){
             <tbody>
               {data.apostas.map(a=>(
                 <tr key={a.id}>
-                  <td>{a.nome.toUpperCase()}</td> {/* Nome em caixa alta aqui */}
+                  <td>{a.nome.toUpperCase()}</td> 
                   <td>{a.palpite}</td>
                   <td>{a.participacao}</td>
                   <td>{a.sugestao || '-'}</td>
