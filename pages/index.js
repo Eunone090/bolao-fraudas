@@ -32,17 +32,21 @@ export default function Home() {
         </div>
 
         <section className="card">
-          <h3>Palpites Vencedores</h3> {/* ALTERAÇÃO: Termo mudado */}
+          <h3>Palpites Vencedores</h3> {/* Termo mudado */}
           {vencedores.length===0 && <div className="small">Ninguém acertou :(</div>}
           <ul>
             {vencedores.map(v => (
-              <li key={v.id}><strong>{v.nome}</strong> — Sugestão: {v.sugestao || '—'}</li>
+              <li key={v.id}>
+                <strong>{v.nome}</strong> 
+                {v.sugestao && ` — Sugestão: ${v.sugestao}`} {/* NOVO: Oculta se sugestão for vazia */}
+              </li>
             ))}
           </ul>
         </section>
 
         <footer className="footer">
-          <div className="small">Se precisar, peça ao admin para desativar a revelação.</div>
+          {/* NOVO: Link discreto para o Admin */}
+          <div className="small">Se precisar, peça ao <Link href="/admin"><a>admin</a></Link> para desativar a revelação.</div>
         </footer>
       </div>
     )
@@ -87,7 +91,7 @@ export default function Home() {
   return (
     <div className="topbar-wrapper">
       
-      {/* ADAPTAÇÃO: Topbar Original */}
+      {/* Topbar Original */}
       <div className="topbar">
         <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
           <div style={{fontWeight:700}}>Bolão de Fraldas — Alícia & Matheus</div>
@@ -95,7 +99,7 @@ export default function Home() {
         </div>
       </div>
       
-      {/* ADAPTAÇÃO: Barra de Progresso no Topo */}
+      {/* Barra de Progresso no Topo */}
       <div className="progress">
         <div style={{
           width: `${porcentagemMenino}%`,
@@ -144,7 +148,7 @@ export default function Home() {
 
               <select className="input" value={participacao} onChange={e=>setParticipacao(e.target.value)}>
                 <option value="fralda">Doação em fralda</option>
-                <option value="pix">Pix</option> {/* ALTERAÇÃO: Removido "(envie comprovante)" */}
+                <option value="pix">Pix</option> {/* Removido "(envie comprovante)" */}
               </select>
 
               <input className="input" placeholder="Sugestão de nome (opcional)" value={sugestao} onChange={e=>setSugestao(e.target.value)} />
@@ -159,7 +163,7 @@ export default function Home() {
 
         {diasRestantes !== null && (
           <section className="card">
-            <div className="small">⏳ Faltam {diasRestantes} dias para o resultado!</div>
+            <div className="small">⏳ Faltam {diasRestantes} dias para apostar!</div>
           </section>
         )}
 
@@ -168,14 +172,14 @@ export default function Home() {
           <div className="small">Total: {data.total} — Menino: {data.menino} • Menina: {data.menina}</div>
           <div style={{marginTop:8}}>
             {data.apostas.slice().reverse().map(a=>(
-              // ADAPTAÇÃO: Adiciona a tag de palpite (Menino/Menina)
+              // Adiciona a tag de palpite (Menino/Menina) e nome em caixa alta
               <div key={a.id} className="list-item">
                 <div style={{display:'flex', alignItems:'center', gap:10}}>
                   <div className={`palpite-tag ${a.palpite === 'menino' ? 'tag-boy' : 'tag-girl'}`}>
                     {a.palpite === 'menino' ? '♂ Menino' : '♀ Menina'}
                   </div>
                   <div>
-                    <strong>{a.nome}</strong>
+                    <strong>{a.nome.toUpperCase()}</strong> {/* Nome em caixa alta */}
                     <div className="small">{a.sugestao ? `Sugestão: ${a.sugestao}` : ''}</div>
                   </div>
                 </div>
