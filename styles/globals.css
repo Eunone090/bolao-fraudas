@@ -1,5 +1,5 @@
 :root{
-  --bg:#f7f7f7;
+  --bg:#FBFBFB; /* NOVO: Fundo Branco Gelo */
   --card:#ffffff;
   --muted:#6b7280;
   --accent:#0ea5a4;
@@ -50,7 +50,7 @@ body{margin:0;background:var(--bg);color:#111}
 .tooltip.girl .tooltiptext{background:var(--girl);border-color:var(--girl-border)}
 .tooltip.girl .tooltiptext::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border-width:6px;border-style:solid;border-color:transparent transparent var(--girl) transparent}
 
-/* NOVO: Estilos para diferenciar os palpites na lista */
+/* Estilos para diferenciar os palpites na lista */
 .palpite-tag {
   font-size: 11px;
   font-weight: 600;
@@ -67,6 +67,27 @@ body{margin:0;background:var(--bg);color:#111}
   background: var(--girl-border);
   color: #9c2759; /* Rosa escuro */
 }
+
+/* NOVO: ESTILOS ESPECÍFICOS PARA A LISTA DE VENCEDORES DA REVELAÇÃO */
+.vencedores-lista {
+  list-style: none; /* Remove bolinhas */
+  padding: 0;
+}
+.vencedores-lista li {
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.vencedor-boy {
+  background-color: var(--boy);
+  border-left: 5px solid var(--accent); /* Cor azul forte */
+}
+.vencedor-girl {
+  background-color: var(--girl);
+  border-left: 5px solid #ff69b4; /* Cor rosa forte */
+}
+/* Fim dos estilos de revelação */
 
 /* responsive */
 @media (max-width:600px){
