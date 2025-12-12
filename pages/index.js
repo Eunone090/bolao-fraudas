@@ -127,7 +127,7 @@ export default function Home() {
       <main className="container">
         <section className="banner">
           <h1>Chá Revelação: Alícia e do Matheus</h1>
-          <p className="small">Aposte no sexo do bebê e, se quiser, sugira um nome. 100% das doações vão para os papais.</p>
+          <p className="small">Aposte no sexo do bebê e, se quiser, sugira um nome.</p>
         </section>
 
         <section className="card">
@@ -202,7 +202,7 @@ export default function Home() {
         </section>
 
         <footer className="footer">
-          <div className="small">Se precisar, peça ao admin para ativar a revelação.</div>
+          <div className="small">Se precisar excluir algum palpite, contate os papais.</div>
         </footer>
       </main>
     </div>
