@@ -126,7 +126,7 @@ export default function Home() {
       
       <main className="container">
         <section className="banner">
-          <h1>Chá Revelação: Alícia e do Matheus</h1>
+          <h1>Chá Revelação: Alícia e Matheus</h1>
           <p className="small">Aposte no sexo do bebê e, se quiser, sugira um nome.</p>
         </section>
 
