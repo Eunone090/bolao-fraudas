@@ -68,7 +68,7 @@ body{margin:0;background:var(--bg);color:#111}
   color: #9c2759; /* Rosa escuro */
 }
 
-/* NOVO: ESTILOS ESPECÍFICOS PARA A LISTA DE VENCEDORES DA REVELAÇÃO */
+/* ESTILOS ESPECÍFICOS PARA A LISTA DE VENCEDORES DA REVELAÇÃO */
 .vencedores-lista {
   list-style: none; /* Remove bolinhas */
   padding: 0;
