@@ -101,7 +101,7 @@ export default function Home() {
       {/* Topbar Original */}
       <div className="topbar">
         <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
-          <div style={{fontWeight:700}}>Bolão de Fraldas — Alícia & Matheus</div>
+          <div style={{fontWeight:700}}>Chá Revelação — Alícia & Matheus</div>
           <div><Link href="/admin"><a className="btn">Admin</a></Link></div> {/* <<<<<< ALTERAÇÃO AQUI */}
         </div>
       </div>
@@ -126,14 +126,14 @@ export default function Home() {
       
       <main className="container">
         <section className="banner">
-          <h1>Bolão de Fraldas da Alícia e do Matheus</h1>
+          <h1>Chá Revelação: Alícia e do Matheus</h1>
           <p className="small">Aposte no sexo do bebê e, se quiser, sugira um nome. 100% das doações vão para os papais.</p>
         </section>
 
         <section className="card">
           <h3>🌟 Como Participar</h3>
           <p className="small">
-            1️⃣ Doe fraldas para os papais! A forma principal de participar do Bolão é doando fraldas — <strong>prefira M, G ou GG</strong> (os papais não precisam do tamanho P). Você pode entregar diretamente ao casal.
+            1️⃣ Doe fraldas para os papais! A forma principal de participar é doando fraldas — <strong>prefira M, G ou GG</strong> (os papais não precisam do tamanho P). Você pode entregar diretamente ao casal.
           </p>
           <p className="small">
             2️⃣ Não consegue entregar fraldas? Participe via Pix! Envie o Pix no valor que desejar — de coração 💛. Pode enviar o comprovante direto pros papais.
@@ -175,7 +175,7 @@ export default function Home() {
 
         {diasRestantes !== null && (
           <section className="card">
-            <div className="small">⏳ Faltam {diasRestantes} dias para apostar!</div>
+            <div className="small">⏳ Restam {diasRestantes} dias para apostar!</div>
           </section>
         )}
 
